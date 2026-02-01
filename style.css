@@ -1,4 +1,6 @@
-/* base */
+/* ------------------------------
+   RESET & BASE
+------------------------------ */
 * {
   box-sizing: border-box;
 }
@@ -6,22 +8,37 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #0b1a1f;
+  background: #0b1a1f; /* deep night base */
   font-family: Verdana, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
   color: #d6f1f2;
+  position: relative;
 }
 
-/* ambient background */
+/* ------------------------------
+   AMBIENT BACKGROUND
+------------------------------ */
 .background {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at top left, rgba(111,194,201,0.12), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(74,122,109,0.15), transparent 65%);
+  background: 
+    linear-gradient(160deg, rgba(15,30,35,1) 0%, rgba(20,50,55,1) 100%);
   z-index: -1;
 }
 
-/* main window */
+/* optional subtle noise overlay */
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('assets/noise.png') repeat; /* very subtle */
+  opacity: 0.03;
+}
+
+/* ------------------------------
+   MAIN WINDOW
+------------------------------ */
 .window {
   max-width: 760px;
   margin: 60px auto;
@@ -32,22 +49,26 @@ body {
   backdrop-filter: blur(8px);
 }
 
-/* header */
+/* ------------------------------
+   HEADER
+------------------------------ */
 .header h1 {
   margin: 0;
   font-size: 52px;
   font-weight: normal;
   letter-spacing: 3px;
-  color: #6fc2c9;
+  color: #6fc2c9; /* stale crystal water */
 }
 
 .tagline {
   margin-top: 6px;
   font-size: 13px;
-  color: #4a7a6d;
+  color: #4a7a6d; /* turquatic green */
 }
 
-/* nav */
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
 .nav {
   margin: 30px 0 40px;
 }
@@ -75,49 +96,58 @@ body {
   width: 100%;
 }
 
-/* panels */
+/* ------------------------------
+   PANELS (GLASS EFFECT)
+------------------------------ */
 .panel {
+  position: relative;
   margin-bottom: 40px;
-  padding: 18px 20px;
-  background: rgba(20, 55, 60, 0.45);
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.06);
+  padding: 20px;
+  background: rgba(20, 55, 60, 0.4); /* glass base */
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* headings */
+/* subtle hover lift */
+.panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* subtle panel color shift */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(111,194,201,0.2), rgba(74,122,109,0.2));
+  pointer-events: none;
+}
+
+/* ------------------------------
+   PANEL HEADINGS
+------------------------------ */
 .panel h2 {
   margin-top: 0;
   font-size: 15px;
   font-weight: normal;
   letter-spacing: 1px;
-  color: #3f6f8c;
+  color: #3f6f8c; /* disillusioned blue */
   border-bottom: 1px solid rgba(63,111,140,0.6);
   padding-bottom: 6px;
 }
 
-/* music entry */
+/* ------------------------------
+   MUSIC ENTRY
+------------------------------ */
 .entry {
   margin-top: 10px;
 }
 
 .title {
   font-style: italic;
-  color: #6fc2c9;
-}
-
-/* links */
-a {
-  color: #6fc2c9;
-}
-
-a:hover {
-  color: #ffffff;
-}
-
-/* footer */
-.footer {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 11px;
-  color: #4a7a6d;
-}
+  color:
