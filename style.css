@@ -64,6 +64,7 @@ body {
   margin-top: 6px;
   font-size: 13px;
   color: #4a7a6d; /* turquatic green */
+  text-align: center;
 }
 
 /* ------------------------------
@@ -97,6 +98,43 @@ body {
 }
 
 /* ------------------------------
+   LANDING PAGE
+------------------------------ */
+.landing .intro {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 15px;
+  color: #d6f1f2;
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.glass-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: rgba(20, 55, 60, 0.45);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  color: #6fc2c9;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  color: #ffffff;
+}
+
+/* ------------------------------
    PANELS (GLASS EFFECT)
 ------------------------------ */
 .panel {
@@ -117,7 +155,7 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
-/* subtle panel color shift */
+/* subtle panel gradient overlay */
 .panel::before {
   content: "";
   position: absolute;
@@ -128,9 +166,7 @@ body {
   pointer-events: none;
 }
 
-/* ------------------------------
-   PANEL HEADINGS
------------------------------- */
+/* panel headings */
 .panel h2 {
   margin-top: 0;
   font-size: 15px;
@@ -150,4 +186,52 @@ body {
 
 .title {
   font-style: italic;
-  color:
+  color: #6fc2c9;
+}
+
+/* ------------------------------
+   LINKS
+------------------------------ */
+a {
+  color: #6fc2c9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 11px;
+  color: #4a7a6d;
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+@media screen and (max-width: 500px) {
+  .window {
+    margin: 30px 20px;
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 36px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .glass-button {
+    padding: 12px 24px;
+    font-size: 13px;
+  }
+}
+
