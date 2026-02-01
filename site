@@ -1,5 +1,9 @@
-# Siobhán
-Artist Profile
-├── index.html
-├── style.css
-└── assets
+#Siobhán
+├── index.html          ← main landing page with intro + buttons
+├── music.html          ← music page
+├── live.html           ← live page
+├── photography.html    ← photography page
+├── style.css           ← shared CSS
+└── assets/
+    ├── noise.png
+    └── owl-cover.jpg
