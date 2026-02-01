@@ -234,4 +234,231 @@ a:hover {
     font-size: 13px;
   }
 }
+/* ------------------------------
+   RESET & BASE
+------------------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #0b1a1f;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d6f1f2;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ------------------------------
+   AMBIENT BACKGROUND
+------------------------------ */
+.background {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(15,30,35,1) 0%, rgba(20,50,55,1) 100%);
+  z-index: -2;
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('assets/noise.png') repeat;
+  opacity: 0.03;
+  z-index: -1;
+}
+
+/* ------------------------------
+   WATER DROPLETS
+------------------------------ */
+.droplet {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(111, 194, 201, 0.2);
+  animation: dropMove 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes dropMove {
+  0% { transform: translateY(-50px) scale(0.8); opacity: 0; }
+  10% { opacity: 1; }
+  90% { transform: translateY(800px) scale(1); opacity: 0.2; }
+  100% { opacity: 0; }
+}
+
+/* ------------------------------
+   MAIN WINDOW
+------------------------------ */
+.window {
+  max-width: 760px;
+  margin: 60px auto;
+  padding: 30px;
+  background: rgba(15, 35, 40, 0.65);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+}
+
+/* ------------------------------
+   HEADER / WATER TEXT
+------------------------------ */
+.water-text {
+  font-weight: bold;
+  color: #6fc2c9; /* fallback */
+  background: linear-gradient(120deg, #6fc2c9 25%, #4a7a6d 50%, #3f6f8c 75%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: waterFlow 5s linear infinite;
+}
+
+@keyframes waterFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.header h1 {
+  font-size: 52px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.tagline {
+  margin-top: 6px;
+  font-size: 13px;
+  text-align: center;
+  color: #4a7a6d;
+}
+
+/* ------------------------------
+   NAVIGATION / BUTTONS
+------------------------------ */
+.nav {
+  margin: 30px 0 40px;
+  text-align: center;
+}
+
+.nav a, .glass-button {
+  display: inline-block;
+  margin: 0 10px 10px;
+  padding: 12px 28px;
+  background: rgba(20, 55, 60, 0.45);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  color: #6fc2c9;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover, .glass-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  color: #ffffff;
+}
+
+/* ------------------------------
+   PANELS (MUSIC / LIVE / PHOTOGRAPHY)
+------------------------------ */
+.panel {
+  position: relative;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(20, 55, 60, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(111,194,201,0.2), rgba(74,122,109,0.2));
+  pointer-events: none;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 15px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #3f6f8c;
+  border-bottom: 1px solid rgba(63,111,140,0.6);
+  padding-bottom: 6px;
+}
+
+/* ------------------------------
+   MUSIC ENTRY
+------------------------------ */
+.entry {
+  margin-top: 10px;
+}
+
+.title {
+  font-style: italic;
+  color: #6fc2c9;
+}
+
+/* ------------------------------
+   LINKS
+------------------------------ */
+a {
+  color: #6fc2c9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 11px;
+  color: #4a7a6d;
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+@media screen and (max-width: 500px) {
+  .window {
+    margin: 30px 20px;
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 36px;
+  }
+
+  .nav, .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav a, .glass-button {
+    padding: 12px 24px;
+    font-size: 13px;
+  }
+}
 
