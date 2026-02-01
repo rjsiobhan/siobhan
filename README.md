@@ -1,2 +1,2 @@
-# siobhan
+# Siobhán
 Artist Profile
