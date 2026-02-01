@@ -1,0 +1,123 @@
+/* base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0b1a1f;
+  font-family: Verdana, Tahoma, sans-serif;
+  color: #d6f1f2;
+}
+
+/* ambient background */
+.background {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(111,194,201,0.12), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(74,122,109,0.15), transparent 65%);
+  z-index: -1;
+}
+
+/* main window */
+.window {
+  max-width: 760px;
+  margin: 60px auto;
+  padding: 30px;
+  background: rgba(15, 35, 40, 0.65);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+}
+
+/* header */
+.header h1 {
+  margin: 0;
+  font-size: 52px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  color: #6fc2c9;
+}
+
+.tagline {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #4a7a6d;
+}
+
+/* nav */
+.nav {
+  margin: 30px 0 40px;
+}
+
+.nav a {
+  margin-right: 18px;
+  font-size: 13px;
+  color: #6fc2c9;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background: #6fc2c9;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* panels */
+.panel {
+  margin-bottom: 40px;
+  padding: 18px 20px;
+  background: rgba(20, 55, 60, 0.45);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* headings */
+.panel h2 {
+  margin-top: 0;
+  font-size: 15px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #3f6f8c;
+  border-bottom: 1px solid rgba(63,111,140,0.6);
+  padding-bottom: 6px;
+}
+
+/* music entry */
+.entry {
+  margin-top: 10px;
+}
+
+.title {
+  font-style: italic;
+  color: #6fc2c9;
+}
+
+/* links */
+a {
+  color: #6fc2c9;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+/* footer */
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 11px;
+  color: #4a7a6d;
+}
